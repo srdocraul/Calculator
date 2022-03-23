@@ -44,12 +44,15 @@ class Calculator{
             case '-':
                 computation = prev - current 
                 break;
-            //TODO: izrada zabrane dijeljenja sa nulom
             case '*':
                 computation = prev * current
                 break;
             case '÷':
                 computation = prev / current
+                if(prev !== 0){
+                    computation = prev / current   
+                }else
+                    return this.currentOperand = NaN
                 break;
             default:
                 return
@@ -84,7 +87,7 @@ class Calculator{
          this.getDisplayNumber(this.currentOperand)
         if(this.operation != null){
             this.previousOperandTextElement.innerText =
-             `${this.getDisplayNumber(this.currentOperand)} ${this.operation}` 
+             `${this.getDisplayNumber(this.previousOperand)} ${this.operation}` 
         } else{
             this.previousOperandTextElement.innerText = ''
         } 
